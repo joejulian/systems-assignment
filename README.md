@@ -38,6 +38,8 @@ Example:
 bin/server --host 0.0.0.0 --port 80 --data example.data
 ```
 
+### Server Configuration
+
 You may save the config file as `.server.yaml` in your home directory.
 
 Example `.server.yaml`:
@@ -99,4 +101,22 @@ bin/client get --host localhost --port 8080 \
 bin/client get --host localhost --port 8080 \
     --key 72cf48f7-d604-4423-b012-4e2329f5117b \
     --key f8cc65e1-2474-44c7-8502-4fd1f9ed7ea3
+```
+
+### Client Configuration
+
+You may save the config file as `.client.yaml` in your home directory.
+
+Example `.client.yaml`:
+
+```yaml
+get:
+    host: 0.0.0.0
+    port: 8080
+```
+
+This would allow you to use the client without specifying the host and port.
+
+```bash
+bin/client get --key 72cf48f7-d604-4423-b012-4e2329f5117b
 ```
