@@ -7,13 +7,6 @@ import (
 	"strings"
 )
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 type Unmarshaler interface {
 	UnmarshalText([]byte) error
 }

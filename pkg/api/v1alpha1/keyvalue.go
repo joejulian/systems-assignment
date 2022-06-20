@@ -53,6 +53,18 @@ func (kvs *KeyValueStore) Unmarshal(scanner *bufio.Scanner) error {
 	return nil
 }
 
+func (kvs *KeyValueStore) Get(key string) (*KeyValue, error) {
+	if kvs.index == nil {
+		return nil, ErrCacheEmpty
+	}
+
+	kv, ok := kvs.index[key]
+	if !ok {
+		return nil, ErrInvalidKey
+	}
+	return kv, nil
+}
+
 func LoadKeyValueStore(filename string) (*KeyValueStore, error) {
 	f, err := os.Open(filename)
 	if err != nil {
